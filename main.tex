@@ -69,7 +69,7 @@
 %----------------------------------------------------------------------------
 %----------------------------------------------------------------------------
 
-\begin{document}
+\begin{document} 
 %\maketitle
 \thispagestyle{empty}
 
@@ -193,17 +193,17 @@ Remerciements\\
     \newline
     NBQ (Non-Boussinesq) signifie qu'on ne fait pas l'approximation de Boussinesq qui est une approximation classique en physique de l'océan. Elle consiste à supposer que la densité de l'eau de mer varie peu dans l'espace et dans le temps autour d'une valeur moyenne $\rho(x,y,z,t)=\rho_{0}+\rho'(x,y,z,t)$. Cette hypothèse permet de négliger les variations de densité dans les équations de Navier-Stokes à l'exception du terme de gravité. Or dans notre étude, nous avons besoin de ces termes de variation de densité puisqu'on étudie le mélange diapycnal. \\
     \newline
-    Non-hydrostatique :\\
+    Non-hydrostatique :\\
     L'approximation hydrostatique est aussi une approximation classique en physique de l'océan, car elle est basée sur le fait que les longueurs horizontales des bassins sont très grandes devant les longueurs verticales. Les termes d'accélérations verticales sont donc négligés ce qui mène à l'équilibre hydrostatique. Or ici, nous avons besoin de cette accélération verticale pour créer des instabilités. \\
     \newline
-    (Quasi-) Compressible :\\ 
+    (Quasi-) Compressible :\\ 
     La compressibilité autorise les ondes acoustiques à se propager. Dans nos études, les ondes acoustiques ne sont pas essentielles, mais dans CROCO, elles sont un moyen de réduire le coût numérique des simulations. Elles sont associées à un sous pas de temps ($\Delta t_{FAST}$) --> évite une équation de poisson très coûteuse. \\
     Dans l'océan, les ondes acoustiques se propagent normalement à une vitesse de $c_s \approx 1500 m.s^{-1}$. Mais ici, nous avons seulement besoin qu'elles fassent un aller-retour dans tout le domaine avant un pas de temps "lent". On peut donc diminuer la vitesse de propagation des ondes acoustiques qui est réduite à un paramètre numérique... \\
     \newline
-    Condition de bords :\\
+    Condition de bords :\\
      \\
     \newline
-    Pas de fermeture turbulente :\\
+    Pas de fermeture turbulente :\\
 
 %--Analyse physique----------------------------------------------------------------
     \subsection{Analyse physique}
@@ -263,7 +263,7 @@ Remerciements\\
     Avec $h$ la hauteur de la couche du cisaillement, $z_0$ le milieu du domaine vertical (également centre de la couche de cisaillement), $U_0$ la moitié de la variation de vitesse initiale sur le domaine, $\rho_0$ la densité médiane sur la distribution initiale de densité, $\Delta\rho$ la moitié de la variation de densité initiale sur tout le domaine et $\Delta\phi$ la concentration initiale maximale du traceur. \\
     \newline    
     \textbf{Densité} \\
-    La distribution initiale de densité est linéaire, ainsi chaque particule fluide a une position unique sur le diagramme de dispersion initial :
+    La distribution initiale de densité est linéaire, ainsi chaque particule fluide a une position unique sur le diagramme de dispersion initial :
     \begin{equation}
     \label{rho_ini}
         \rho(x,y,z,t=0)=-z\Delta\rho
@@ -277,7 +277,7 @@ Remerciements\\
 \end{figure}
     \newline
     \textbf{Vitesse} \\
-    Le champ de vitesse initiale est : 
+    Le champ de vitesse initiale est : 
     \begin{subequation}
     \begin{align}
         \displaystyle
@@ -306,7 +306,7 @@ Remerciements\\
             & w'(x,y,z)=-\epsilon f(z)\frac{2\pi n_x}{L_x}\cos{(\frac{2\pi n_x}{L_x}x)}(1+\epsilon_{3D}\sin{(\frac{2\pi n_y}{L_y}y)})
         \end{align}
     \end{subequation}
-    La fonction $f(z)$ localise la perturbation initiale dans la région du cisaillement : 
+    La fonction $f(z)$ localise la perturbation initiale dans la région du cisaillement : 
     \begin{equation}
         f(z)=1-tanh^2(z)
     \end{equation}
