@@ -6,9 +6,10 @@
 % Language setting, set page size and margins
 %-----------------------------------------------------------------------------
 \usepackage[english]{babel}
-\usepackage[a4paper,top=2.5cm,bottom=2.5cm,left=2.5cm,right=2.5cm,marginparwidth=1.75cm]{geometry}
+\usepackage[a4paper,top=2.5cm,bottom=2.5cm,left=2cm,right=2cm,marginparwidth=1.75cm]{geometry}
 \usepackage{setspace}
 \onehalfspacing %interligne 1.5
+%\doublespacing
 %----------------------------------------------------------------------------
 
 % Useful packages
@@ -88,27 +89,34 @@
     \enlargethispage{2cm}
  
     \AddToShipoutPicture{
-        %\AtUpperLeftCorner{1.5cm}{1cm}{\includegraphics[width=4cm]{figures/logolegos.jpg}}
-        %\AtUpperRightCorner{1.5cm}{1cm}{\includegraphics[width=6.5cm]{data/logola.jpg}}
+        \AtUpperLeftCorner{1.5cm}{2cm}{\includegraphics[width=5cm]{figures/logoUPS.png}}
+        \AtUpperLeftCorner{7.3cm}{1.3cm}{\includegraphics[width=3.5cm]{figures/logoCNRS.png}}
+        \AtUpperLeftCorner{11cm}{1cm}{\includegraphics[width=4cm]{figures/logoLEGOS.png}}
+        \AtUpperRightCorner{1.5cm}{2cm}{\includegraphics[width=4cm]{figures/logoLA.jpg}}
         }
  
     \begin{center}
-        \vspace*{10cm}
+        \vspace*{5cm}
         \textsc{\@title} \\
-        \newline
+        \vspace*{0.5cm}
+        \textsc{\Large Université Paul Sabatier} \\
+        \vspace*{2cm}
         \large{\bf Influence de la diffusion moléculaire sur le mélange de traceurs passifs}
         \HRule
         \vspace*{0.5cm}
         \large{\@author} \\
-        \newline
+        \vspace{1cm}
         \small{Tuteurs : Yves Morel (Legos), Francis Auclair (Laero) et Cyril Nguyen (Laero)}
         
     \end{center}
  
-    \vspace*{9.2cm}
+    \vspace*{3cm}
  
     \begin{center}
-        %\makebox[\textwidth]{\includegraphics[width=\paperwidth]{figures/???}}
+        \makebox[\textwidth]{\includegraphics[width=\paperwidth]{figures/Imageinstabilité.jpg}}
+    
+    \vspace{0.3cm}
+    \small{\bf Février - Août 2022}
     \end{center}
  
 \end{titlepage}
@@ -135,6 +143,7 @@ apports du stage (pour le rapporteur de l'université, pas nécessairement dans 
 %%  TABLE DES MATIERES
 %----------------------------------------------------------------------------
 \newpage
+\renewcommand*\contentsname{Table des Matières}
 \tableofcontents
 
 %\newpage
@@ -156,31 +165,38 @@ Remerciements\\
     \textbf{\textit{Le mélange dans l'océan}} \\
     %Contexte, c'est quoi le mélange, comment il agit dans l'océan, quel est son impact ? \\
     %Le mélange est l'action d'homogénisation d'un volume fluide. Dans le cas de l'océan, il correspond à la redistribution de propriétés de masse d'eau comme la chaleur, la salinité, les espèces chimiques et biologiques. 
-    À l'échelle globale, l'océan a une stratification stable, mais si on s'intéresse aux petites échelles, le mélange diapycnal devient important. Les processus de mélange sont importants au niveau des bords des océans (tension du vent, frottement de fond) mais aussi dans le $~95\%$ restant de la colonne d'eau. Ce mélange concerne aussi bien les traceurs passifs, actifs et réactifs. Les traceurs passifs n'ont pas d'effet direct sur la dynamique et pas d'activité biochéochimique à court terme. C'est le cas de certaines espèces à faible concentration ou à flottabilité neutre (Warhaft 2000; Canuto, Cheng \& Howard 2011). Ceux-ci comprennent, dans l'océan, les nutriments, les espèces biologiques microscopiques (e.g. Vaquer-Sunyer \& Duarte 2008; Brierley \& Kingsford 2009) et certains éléments traces/radioéléments (Broeker et al. 1970 1976). Les traceurs actifs, comme la densité, la température et la salinité, ont une influence sur la dynamique. Les traceurs réactifs sont des espèces biologiques et/ou chimiques capables de réagir avec certaines espèces environnantes. C'est le cas, par exemple, des espèces participant aux réactions biogéochimiques comme les phytoplanctons, les composants azoté, les phosphates et les éléments carbonés. 
+    À l'échelle globale, l'océan a une stratification stable, mais si on s'intéresse aux petites échelles, le mélange diapycnal devient important. Les processus de mélange sont importants au niveau des bords des océans (tension du vent, frottement de fond) mais aussi dans le $~95\%$ restant de la colonne d'eau. Ce mélange concerne aussi bien les traceurs passifs, actifs et réactifs. Les traceurs passifs n'ont pas d'effet direct sur la dynamique et pas d'activité biogéochimique à court terme. C'est le cas de certaines espèces à faible concentration ou à flottabilité neutre (\cite{warhaft_passive_2000}, \cite{canuto_vertical_2011}). Ceux-ci comprennent, dans l'océan, les nutriments, les espèces biologiques microscopiques (\cite{vaquer-sunyer_thresholds_2008}, \cite{brierley_impacts_2009}) et certains éléments traces/radioéléments (\cite{broecker_distribution_nodate} 1970 1976). Les traceurs actifs, comme la densité, la température et la salinité, ont une influence sur la dynamique. Les traceurs réactifs sont des espèces biologiques et/ou chimiques capables de réagir avec certaines espèces environnantes. C'est le cas, par exemple, des espèces participant aux réactions biogéochimiques comme les phytoplanctons, les composants azotés, les phosphates et les éléments carbonés. 
     \\
-    Loin des bords dans l'océan, le mélange vertical peut être déclenché par des instabilités dynamiques de cisaillement telles que les instabilités de Kelvin-Helmholtz (cite Smyth et mous). Ces instabilités ont été largement étudiées depuis leur théorisation par Lord Kelvin, en 1868, et Hermann Von Helmholtz, en 1871. À la fois avec des études expérimentales en laboratoire (Thorpe 1973; Caulfield, Yoshida & Peltier 1996; Patterson et al. 2006) avec des simulations numériques (Klaassen & Peltier (1985, 1989) Caulfield & Peltier (1994) Scinocca 1995, Alexakis 2009, Carpenter, Balmforth & Lawrence 2010, Mashayek & Peltier 2012a,b, 2013). Les instabilité de KH sont également observées dans l'océan dans des zones de forts cisaillements: le long des thermoclines océaniques (Woods 1968; Marmorino 1987), pendant les phases de marée descendente près des monts sous-marins (van Haren & Gostiaux 2010) et aussi à la limite de la couche de surface de mélange qui à tendance à s'abaisser avec ces instabilités de cisaillements (Lincoln, Rippeth & Simpson 2016). Dans les estuaires on retrouve ces instabilités au niveau des interfaces (Geyer & Smith 1987; Geyer et al. 2010) qui peuvent être riches en espèces chimiques et nutriment à cause des apports fluviaux. 
+    Loin des bords dans l'océan, le mélange vertical peut être déclenché par des instabilités dynamiques de cisaillement telles que les instabilités de Kelvin-Helmholtz (cite Smyth et mous). Ces instabilités ont été largement étudiées depuis leur théorisation par Lord Kelvin, en 1868, et Hermann Von Helmholtz, en 1871. À la fois avec des études expérimentales en laboratoire (Thorpe 1973; Caulfield, Yoshida & Peltier 1996; Patterson et al. 2006) avec des simulations numériques (Klaassen & Peltier (1985, 1989) Caulfield & Peltier (1994) Scinocca 1995, Alexakis 2009, Carpenter, Balmforth & Lawrence 2010, Mashayek & Peltier 2012a,b, 2013). Les instabilité de KH sont également observées dans l'océan dans des zones de forts cisaillements: le long des thermoclines océaniques (Woods 1968; Marmorino 1987), pendant les phases de marée descendante près des monts sous-marins (van Haren & Gostiaux 2010) et aussi à la limite de la couche de surface de mélange qui a tendance à s'abaisser avec ces instabilités de cisaillements (Lincoln, Rippeth & Simpson 2016). Dans les estuaires, on retrouve ces instabilités au niveau des interfaces (Geyer & Smith 1987; Geyer et al. 2010) qui peuvent être riches en espèces chimiques et nutriment à cause des apports fluviaux. 
     \\
-    Dans l'océan, les études de l'effet des instabilités KH ont été motivées par l'importance probable des processus de mélange sur la stratification globale et donc la circulation à grande échelle (par exemple Wunsch & Ferrari 2004), et par analogie, ils sont également potentiellement importants pour la distribution verticale des espèces chimiques et biologiques. Compte tenu de l'impact très probable du mélange turbulent sur les distributions macroscopiques/grandes échelles de traceurs, il est important de bien comprendre ces processus.
+    Dans l'océan, les études de l'effet des instabilités KH ont été motivées par l'importance probable des processus de mélange sur la stratification globale et donc la circulation à grande échelle (par exemple Wunsch & Ferrari 2004), et par analogie, ils sont également importants pour la distribution verticale des espèces chimiques et biologiques. Compte tenu de l'impact du mélange turbulent sur les distributions macroscopiques/grandes échelles de traceurs, il est important de bien comprendre ces processus qui sont la clé de notre capacité à modéliser et prévoir l’évolution des ressources, la qualité de l'eau, le développement et la dispersion de certains polluants, la production primaire (plancton) et l’évolution des ressources halieutiques dans l'océan qui représentent des problèmes de société importants pour une gestion et une exploitation durable de l’environnement. 
     \\
     Comment on représente le mélange, paramétrisation actuelle ? incertitudes dues aux processus sous-mailles ?
-    Les modèles océaniques sont généralement établis pour résoudre l'échelle régionale ou globale des bassins dans une démarche de compréhension de la circulation et du transport des traceurs. Pour éviter les coûts de calculs aberrants, les résolutions horizontales sont de l'ordre du kilomètre à plusieurs kilomètres et la résolution verticale d'une dizaine de mètres à la centaine de mètres. Mais ces résolutions excluent les processus petites échelles comme la dissipation turbulente et le mélange irréversible qui sont pourtant essentiels pour établir l'intensité de la circulation océanique et la distribution des propriétés des masses d'eau (John Toole 1998). Des paramétrisations de processus sous-maille sont donc mis en place mais ... \\
+    Les modèles océaniques sont généralement établis pour résoudre l'échelle régionale ou globale des bassins dans une démarche de compréhension de la circulation et du transport des traceurs. Pour éviter les coûts de calculs aberrants, les résolutions horizontales sont de l'ordre du kilomètre à plusieurs kilomètres et la résolution verticale d'une dizaine de mètres à la centaine de mètres. Mais ces résolutions excluent les processus petites échelles comme la dissipation turbulente et le mélange irréversible qui sont pourtant essentiels pour établir l'intensité de la circulation océanique et la distribution des propriétés des masses d'eau (John Toole 1998). Des paramétrisations de processus sous-maille sont donc mis en place tels que les modèles KTE utilisent une équation d'évolution et de dissipation de l'énergie cinétique turbulente sensible aux forçages turbulents (cisaillement, convection, tension du vent, frottement de fond). Modèles KPP ...\\
     \newline
     \textbf{\textit{De l'instabilité de Kelvin-Helmholtz vers la cascade turbulente}} \\
-    Les instabilités KH se produisent à la frontière entre deux fluides ayant des vitesses différentes. Cependant, la stratification de la colonne d'eau a tendance à stabiliser l'écoulement. Une condition nécessaire pour avoir une instabilité de KH est d'avoir un nombre de Richardson intérieur à 0.25 (Peltier, Caufield), sachant qu'il représente un rapport entre la fréquence de Brunt-Vaisala ($\approx$stratification) et le carré du cisaillement de vitesse horizontale : \\
+    Les instabilités de KH sont des sources de cascade turbulente, et donc potentiellement de mélange efficace, c'est-à-dire de mélange avec un impact sur les profils macroscopique. Dans cette étude, on a choisi ces instabilités pour créer du mélange turbulent, mais les résultats pourraient s'appliquer à toutes autres sources d'instabilité. Les instabilités KH se produisent à la frontière entre deux fluides ayant des vitesses différentes. Cependant, la stratification de la colonne d'eau a tendance à stabiliser l'écoulement. Une condition nécessaire pour avoir une instabilité de KH est d'avoir un nombre de Richardson intérieur à 0.25 (Peltier, Caufield), sachant qu'il représente un rapport entre la fréquence de Brunt-Vaisala ($\approx$stratification) et le carré du cisaillement de vitesse horizontale : \\
     \begin{equation}
         \label{Ri}
         Ri = -\frac{g \dfrac{\partial\rho}{\partial z}}{\rho_0 (\dfrac{\partial u}{\partial z})^2}
     \end{equation}
     \\
     L'instabilité KH est caractérisée par la formation d'un vortex 2D, appelé "cat eyes" dans la littérature. La longueur d'onde et de ce vortex peut être prédit avec la théorie de Taylor-Gloldstein qui découle d'une dérivation des équations d'Euler avec une approximation de Boussinesq. Une résolution numérique des valeurs propres (taux de croissance et longueur d'onde) est proposé par Hazel, 1971. Une fois le vortex saturé en énergie, une cascade turbulente se met en place pour transférer cette énergie des grandes échelles vers les petites échelles (Peltier et al. (1978), Davis \& Peltier (1979), and Klaassen \& Peltier (1985b, 1989, 1991). Des instabilités transverses (3D) se mettent en place et la diffusion moléculaire commence à être efficace à cause des forts gradients locaux formés par l'étirement et l'advection dans la couche de cisaillement (Caulfield \& Peltier (1994)).  \\
-    Les instabilités de KH sont des sources de cascade turbulente, et donc potentiellement de mélange efficace, c'est-à-dire avec un impact sur les profils macroscopique.
     \\
-    %\subsection{Démarche}
     \newline
-    \textbf{\textit{Approche utilisée}} \\
-    Pour comprendre l'impact du mélange diapycnal sur les profils macroscopiques
-    Démarche utilisée, modélisation directe et analyse physique
-    p
+    \textbf{\textit{Problématique}} \\
+    \color{blue}
+    Les paramétrisations de processus turbulents sont des astuces pour gagner en temps et par conséquent impliquent des hypothèses et des simplifications des processus. \\
+    Souvent, les coefficients de diffusion des traceurs sont choisis de manière ad hoc/empirique avec un ordre de grandeur de $10^{-4}$ $m^2.s^{-1}$ pour tout les traceurs. Mais ... \\
+    \color{black}
+    L'étude théorique et numérique de \cite{penney_diapycnal_2020} avec des traceurs passifs a montré qu’il existe des contraintes fortes sur l’évolution macroscopique des traceurs : le mélange engendre une simplification des interdépendances entre traceurs, qui deviennent linéaires. Ils ont montré que cela contraint tous les traceurs à avoir une diffusivité turbulente macroscopique égale et à pouvoir être tous entièrement déterminés à partir de la connaissance de l'évolution d’un seul traceur. Ces expériences mettent en évidence comment des propriétés à échelle moléculaire peuvent avoir des répercussions majeures à échelle macroscopique. Cependant, ces résultats ont été établis dans le cas précis d’égalité des diffusivités moléculaires pour tous les traceurs. C'est pourquoi, Yves Morel et Francis Auclair m'ont proposer un stage au sein de Legos pour étudier les effets d’une diffusion moléculaire différente entre traceurs passif et densité, et de vérifier si la contrainte sur l'évolution macroscopique des traceurs est toujours valide. %Yves Morel travail sur les dynamiques océaniques à moyennes et petites échelles en tant que directeur de recherche au Legos. Francis Auc  \\
+    Pour comprendre l'impact du mélange moléculaire sur les profils macroscopiques, on a mis en place une modélisation numérique fine échelle d'une colonne d'eau soumise à un cisaillement de vitesse horizontale avec le modèle CROCO que je commencerai par présenter. En suivant, j'introduirai les formalismes physiques avec lesquels j'ai analysé mes résultats,
+    \newline
+    \textbf{\textit{Approche du stage}} \\
+    
+    \color{blue}
+    Pour comprendre l'impact du mélange moléculaire sur les profils macroscopiques, on a mis en place une modélisation numérique fine échelle d'une colonne d'eau soumise à un cisaillement de vitesse horizontale. \\ Analyse physique
+    \color{black}
 
 %----------------------------------------------------------------------------
 %%  METHODE
@@ -199,6 +215,7 @@ Remerciements\\
     Non-hydrostatique :\\
     L'approximation hydrostatique est aussi une approximation classique en physique de l'océan, car elle est basée sur le fait que les longueurs horizontales des bassins sont très grandes devant les longueurs verticales. Les termes d'accélérations verticales sont donc négligés, ce qui mène à l'équilibre hydrostatique. Or ici, nous avons besoin de cette accélération verticale pour créer des instabilités. \\
     \newline
+    \color{blue}
     (Quasi-) Compressible :\\ 
     La compressibilité autorise les ondes acoustiques à se propager. Dans nos études, les ondes acoustiques ne sont pas essentielles, mais dans CROCO, elles sont un moyen de réduire le coût numérique des simulations. Elles sont associées à un sous pas de temps ($\Delta t_{FAST}$) --> évite une équation de poisson très coûteuse. \\
     Dans l'océan, les ondes acoustiques se propagent normalement à une vitesse de $c_s \approx 1500 m.s^{-1}$. Mais ici, nous avons seulement besoin qu'elles fassent un aller-retour dans tout le domaine avant un pas de temps "lent". On peut donc diminuer la vitesse de propagation des ondes acoustiques qui est réduite à un paramètre numérique... \\
@@ -207,6 +224,7 @@ Remerciements\\
      \\
     \newline
     Pas de fermeture turbulente :\\
+    \color{black}
 
 %--Analyse physique----------------------------------------------------------------
     \subsection{Analyse physique}
@@ -214,7 +232,15 @@ Remerciements\\
         \subsubsection{Diagramme de dispersion}
         
         Pour suivre le mélange diapycnal, les propriétés des particules fluides peuvent être représentées dans un espace 2D avec en coordonnées la concentration en traceur et la densité. 
-        Ce diagramme de dispersion met en évidence les changements de caractéristiques de particules. En effet, une particule fluide reste à la même position dans ce diagramme quelque soit son déplacement ou sa déformation géométrique dans l'espace physique. En revanche, si les propriétés sont modifiées par un mélange irréversible dans l'espace physique, la distribution des particules fluides changera dans ce diagramme de dispersion. 
+        Ce diagramme de dispersion met en évidence les changements de caractéristiques de particules. En effet, une particule fluide reste à la même position dans ce diagramme quelque soit son déplacement ou sa déformation géométrique dans l'espace physique. En revanche, si les propriétés sont modifiées par un mélange irréversible dans l'espace physique, la distribution des particules fluides changera dans ce diagramme de dispersion. Par exemple sur la figure ???, L'advection ne modifie pas le nuage de point, mais peut rapprocher des particules fluides avec des propriétés différentes, comme les quatre particules vertes. Le mélange homogénéisera les caractéristiques densité-traceur des parcelles à l'intérieur d'une cellule dont la taille est déterminée par le coefficient de diffusion. Les caractéristiques densité-traceur résultantes de cette cellule sont alors les valeurs moyennes des propriétés initiales, pondérées par leur rapport volumétrique (par exemple le point rouge). Cela implique que le nuage de points après advection et mélange sera contenu dans l'enveloppe convexe de la distribution initiale (région à l'intérieur de la courbe en pointillés rouges). \\
+        \begin{figure}[!h]
+            \centering
+            \label{Fig8}
+            \includegraphics{figures/fig8_Jared.PNG}
+            \caption{Diagramme de dispersion (traceur-densité) issus de3
+            \cite{penney_diapycnal_2020}.}
+        \end{figure}
+        \newline
         Des diagrammes similaires sont souvent utilisés pour caractériser le mélange dans les flux géophysiques, tels que les diagrammes température-salinité utilisés pour quantifier le mélange de grandes masses d'eau dans l'océan (par exemple \citep{tomczak_multi-parameter_1981}) ; les courbes de mélange traceur-salinité dans une embouchure, utilisées pour déterminer si un estuaire peut agir comme source ou puits d'un traceur donné (par exemple, \citep{loder_dynamics_1981} et \cite{officer_dynamics_1981}); ou des diagrammes de traceurs-traceurs utilisés pour examiner les relations compactes entre différents traceurs atmosphériques (par exemple, \cite{tilmes_development_2006} et \cite{plumb_tracer_2007}). Les diagrammes de dispersion sont donc pratiques pour l'analyse présentée ici, car ils permettent l'identification directe du mélange de traceur dans des nouvelles gammes de densités
         %transport de traceurs diapycnal 
         qui doit être indiqué par la génération de nouveaux points dans l'espace densité-traceur.\\
@@ -222,41 +248,46 @@ Remerciements\\
         Pour mieux représenter la distribution en densité et traceur, chaque point dans cet espace est associé à un "poids" qui est une formulation discrète de la fonction de probabilité densité-traceur présentée à l'annexe D de \cite{plumb_tracer_2007}. Le poids de chaque point quantifie sa concentration en densité ou traceur, il est représenté par l'échelle de couleur sur les figures. \\
         \newline
         \cite{plumb_tracer_2007}, \cite{lauritzen_evaluating_2012} ont déjà utilisé cette méthode pour déterminer si le mélange dans les modèles numériques est physique. \cite{penney_diapycnal_2020} ont montré que si l'évolution de la densité et du traceur est gouvernée par une équation d'advection-diffusion et que les coefficients de diffusion moléculaire de densité et de traceur passif sont égaux, il existe une contrainte sur l'évolution de ce diagramme. Dans ces conditions, les particules restent confinées dans l'enveloppe convexe du pas de temps précédent (Figure \noparref{Fig8}) ce qui induit une diminution de cette enveloppe au cours du temps jusqu'à une convergence de la relation traceur densité pour atteindre une forme linéaire par morceaux.
-        \begin{figure}[!h]
-            \centering
-            \label{Fig8}
-            \includegraphics{figures/fig8_Jared.PNG}
-            \caption{Diagramme de dispersion issus de \cite{penney_diapycnal_2020}. L'advection ne modifie pas le nuage de point mais peut rapprocher des particules fluides avec des propiétés différentes, comme les quatres particules vertes. Le mélange homogénéisera les caractéristiques densité-traceur des parcelles à l'intérieur d'une cellule dont la taille est déterminée par le coefficient de diffusion. Les caractéristiques densité-traceur résultantes de cette cellule sont alors les valeurs moyennes des propriétés initiales, pondérées par leur rapport volumétrique (par exemple le point rouge). Cela implique que le nuage de points après advection et mélange sera contenu dans l'enveloppe convexe de la distribution initiale (région à l'intérieur de la courbe en pointillés rouges).}
-        \end{figure}
         
-        Dans cette étude, les conditions pour valider cette propriété ne sont plus valides. Comme les coefficients de diffusion de densité et traceur ne sont plus les mêmes, il n'y a plus de déterminisme entre traceur et densité.
+        %Dans cette étude, les conditions pour valider cette propriété de convergence ne sont plus valides. Comme les coefficients de diffusion de densité et traceur ne sont plus les mêmes, il n'y a plus de déterminisme entre traceur et densité.
     
     
         \subsubsection{Réarrangement isopycnal}
         
-        Le réarrangement isopycnal est un formalisme pour visualiser l'évolution macroscopique de l'instabilité en trouvant, de manière conservative, un profil vertical 1D à partir du domaine 3D. Il a été introduit par \citep{nakamura_two-dimensional_1996} et \citep*{winters_diascalar_1996} pour des écoulements spatialement inhomogènes où les traceurs sont advectés et diffusés. \\
-        \newline
-        Article Jared : \textit{Contours (in two dimensions) or surfaces (in three dimensions) of tracer concentration are used to define coordinate surfaces or contours, but the latter are labelled not by the value of the tracer concentration but the area (in two dimensions) or volume (in three dimensions) enclosed by the surface. If the tracer has some kind of geometric organisation, then the coordinate system and the variation of tracer concentration within that system represent that organisation. For the KH instability and for other flows in density-stratified fluids, the natural tracer is the density and the corresponding tracer-based coordinate, z\∗, represents a vertical coordinate. \\
-        Note that the rearranged (or background) density field ρ∗(z∗, t) may be calculated from the 3-D simulation by rearrangement to construct a monotonic profile. That is, fluid elements, each with a specified infinitesimal volume, are ordered by their density, giving density as a function of cumulative volume (i.e. the volume of fluid with density less than a given value), and then the volume is converted to a vertical coordinate z\∗ by dividing by the horizontal area of the fluid domain. The coordinate z∗ is then a decreasing function of ρ\∗. The value of z\∗ for a given ρ∗ is therefore proportional to the integral, down to ρ\∗ of the weight defined previously in § 4.1. (Note that, typically, (5.1) is written in terms of ρ and z\∗ (for example, Smyth et al. 2005), with ∂ρ/∂z∗ implicitly referring to the adiabatic rearrangement of the density field. For clarity, ρ\∗ will be used here for density when it is being regarded as a function of z\∗, and ρ will be used when it is being regarded as a function of the Cartesian coordinates (x, y,z), such as in the numerator of the right-hand side of (5.2).)}
-        \newline
-        Ce réarrangement isopycnal est en faite une représentation macroscopique des processus petites-échelles. Il a l'avantage d'être conservatif, c'est-à-dire de ne pas modifier les propriétés des particules, le terme de réarrangement adiabatiques est souvent utilisé dans la littérature. C'est le seul moyen connu d'obtenir un profil macroscopique sans rajouter de processus non conservatif (diabatique) contrairement à une moyenne spatiale qui, par définition, homogénéise les propriétés sur un espace donné. \\
-        Le profil obtenu issu du réarrangement de la densité est le profil de plus basse énergie potentielle et il ne varie au cours du temps qu'avec des processus non conservatif, i.e avec le mélange (\cite*{winters_diascalar_1996}. --> extraction du mélange diffusif et convectif (pour des fluides incompressibles winter et d'asaro)
-        
+        Le réarrangement isopycnal est un formalisme pour visualiser l'évolution macroscopique de l'instabilité en trouvant, de manière conservative, un profil vertical 1D à partir du domaine 3D. Il a été introduit par \citep{nakamura_two-dimensional_1996} et \citep*{winters_diascalar_1996} pour des écoulements spatialement inhomogènes où les traceurs sont advectés et diffusés. C'est un changement des coordonnées cartésiennes vers des coordonnées basées sur l'organisation géométrique d'un traceur (ici la densité). Les isosurfaces de densité sont indexées par leur volume pour être réorganisées de manière stable. Autrement dit, les éléments fluides, chacun avec un volume infinitésimal spécifié, sont classés par leur densité, donnant la densité en fonction du volume cumulé (c'est-à-dire le volume de fluide avec une densité inférieure à une valeur donnée), puis le volume est converti en coordonnée verticale $z_*$ en divisant par la surface horizontale du fluide domaine. Ainsi, on réarrange les parcelles fluides en changeant leur forme, mais en conservant leur volume (Figure ???). Les nouvelles distributions en traceur exprimées en fonction ce ces nouvelles coordonnées seront notées avec une étoile ($\rho_*$ et $\phi_*$).
+        \begin{figure}[!h]
+	    \centering		
+		    \includegraphics[width=0.9\linewidth]{figures/rearrangementisop.png}
+            \caption{}
+	        \label{rea_isop}
+        \end{figure}
+        Ce réarrangement isopycnal est en faite une représentation macroscopique des processus diffusif. Il a l'avantage d'être conservatif, c'est-à-dire de ne pas modifier les propriétés des particules, le terme de réarrangement adiabatiques est souvent utilisé dans la littérature. C'est le seul moyen connu d'obtenir un profil macroscopique sans rajouter de processus non conservatif (diabatique) contrairement à une moyenne spatiale qui, par définition, homogénéise les propriétés sur un espace donné (Figure ???). \\
+        Le profil obtenu issu du réarrangement de la densité est le profil de plus basse énergie potentielle et il ne varie au cours du temps qu'avec des processus non conservatif, i.e avec le mélange (\cite*{winters_diascalar_1996}.
         
         \subsubsection{Diffusion effective}
         
-        La diffusion effective est la diffusion efficace à l'échelle macroscopique. Or l'évolution du profil macroscopique (issu du réarrangement isopycnal) peut être écrite sous la forme d'une équation de diffusion (\citep{penney_diapycnal_2020-1}): 
+        La diffusion effective est la diffusion efficace à l'échelle macroscopique. Comme le profil macroscopique (issus du réarrangement isopycnal) ne varie qu'avec des processus non conservatif, son évolution peut être écrite sous la forme d'une simple équation de diffusion (\citep{penney_diapycnal_2020-1}) : 
         \begin{equation}
             \label{rho*}
             \frac{\partial\rho_*}{\partial t}=\frac{\partial}{\partial z_*}(K_{\rho}\frac{\partial\rho_*}{\partial z_*})
         \end{equation}
-        Avec $K_{\rho}$ la diffusion effective, seule inconnue de cette équation, l'évolution de $\rho_*$ nous est donnée par le réarrangement isopycnal de la sortie de la simulation. D'après l'annexe C de \citep{penney_diapycnal_2020}, la diffusion effective s'écrit sous la forme :
+        Avec $K_{\rho}$ la diffusion effective, seule inconnue de cette équation, l'évolution de $\rho_*$ nous est donnée par le réarrangement isopycnal de la sortie de la simulation. La diffusion effective peut donc être extraite de cette équation :
         \begin{equation}
             \label{Keff}
             \frac{K_{\rho}}{\kappa_{\rho}}=\frac{\langle\vert\Delta\rho\vert^2\rangle_{z_*}}{(\dfrac{\partial\rho_*}{\partial z_*})^2}
         \end{equation}
-         ...
-        
+        Une fois cette diffusion effective calculée, on peut l'appliquer aux profils initiaux de la densité à travers une simple équation de diffusion macroscopique. Le profil final obtenu doit être le même que le profil final de la densité réarrangé. C'est donc une manière d'obtenir un coefficient de diffusion macroscopique utilisable dans des paramétrisations sous-maille des processus non conservatif. \cite{penney_diapycnal_2020} ont monté que si le coefficient de diffusion moléculaire d'un traceur passif est le même que celui de la densité, alors un traceur virtuel calculé avec cette même diffusion effective peut prédire le profil final du traceur. Rigoureusement, l'évolution du traceur réarrangé s'écrit : 
+        \begin{equation}
+           \frac{\partial\phi^*}{\partial t} = \frac{\partial}{\partial z^*} (\frac{\kappa_{\rho}}{\kappa_{\phi}}K_{\rho}\frac{\partial\phi^*}{\partial z^*}) + \frac{\partial}{\partial z^*} ((\frac{\partial\rho^*}{\partial z^*})^{-1} \langle\kappa_{\phi}\nabla\phi'\cdot \nabla\rho - \kappa_{\rho}\phi'\nabla^2\rho\rangle_{z^*})
+        \end{equation}
+        Mais le coefficient de diffusion effectif peut être appliqué à un traceur virtuel, pour lequel seul le premier terme, associé au flux diffusif du traceur à travers les isopycnes, est considéré (le second terme, plus compliqué, associé au mouvement des isopycnes par rapport au fluide est négligé). L'évolution du traceur virtuel s'écrit donc :
+        \begin{equation}
+            \frac{\partial\phi_v}{\partial t} = \frac{\partial}{\partial z^*} (\frac{\kappa_{\phi}}{\kappa_{\rho}}K_{\rho}\frac{\partial\phi_v}{\partial z^*})
+        \end{equation}
+        %Cependant, cette équation, démontré dans l'annexe C3 de \cite{penney_diapycnal_2020}, est plus complexe que pour la densité :
+        %\begin{equation}
+        %   \frac{\partial\phi^*}{\partial t} = \frac{\partial}{\partial z^*} (\frac{\kappa_{\rho}}{\kappa_{\phi}}K_{\rho}\frac{\partial\phi^*}{\partial z^*}) + \frac{\partial}{\partial z^*} ((\frac{\partial\rho^*}{\partial z^*})^{-1} \langle\kappa_{\phi}\nabla\phi'\cdot \nabla\rho - \kappa_{\rho}\phi'\nabla^2\rho\rangle_{z^*})
+        %\end{equation}
         
 %----------------------------------------------------------------------------
 %%  CONFIGURATION NUMÉRIQUE
@@ -266,11 +297,11 @@ Remerciements\\
 %---Conditions initiales------------------------------------------------------    
     \subsection{Conditions initiales}
     
-    Les équations sont toutes adimentionalisées par des échelles typiques des instabilités KH. Les variables dimensionnelles sont notées avec des tildes. 
+    Les équations sont toutes adimentionalisées par des échelles typiques des instabilités KH.  Par conséquent, les valeurs présentées sur les figures sont également sans dimensions. Les variables dimensionnelles sont notées avec des tildes. 
     \begin{center}
        $x=\Tilde{x}/h$  \hspace{1cm}  $y=\Tilde{y}/h$  \hspace{1cm}   $z=(\Tilde{z}-z_0)/h$   \hspace{1cm}    $t=\Tilde{t}U_0/h$    \hspace{1cm}  $u=\Tilde{u}/U_{0}$    \hspace{1cm}   $\rho =( \Tilde{\rho}-\rho_0)/\Delta\rho$   \hspace{1cm}     $\phi=\title{\phi}/\Delta\phi$ \\ 
     \end{center}
-    Avec $h$ la hauteur de la couche du cisaillement, $z_0$ le milieu du domaine vertical (également centre de la couche de cisaillement), $U_0$ la moitié de la variation de vitesse initiale sur le domaine, $\rho_0$ la densité médiane sur la distribution initiale de densité, $\Delta\rho$ la moitié de la variation de densité initiale sur tout le domaine et $\Delta\phi$ la concentration initiale maximale du traceur. \\
+    Avec $h$ la hauteur de la couche du cisaillement, $z_0$ le milieu du domaine vertical (également centre de la couche de cisaillement), $U_0$ la moitié de la variation de vitesse initiale sur le domaine, $\rho_0$ la densité médiane sur la distribution initiale de densité, $\Delta\rho$ la moitié de la variation de densité initiale sur tout le domaine et $\Delta\phi$ la concentration initiale maximale du traceur.\\
     \newline    
     \textbf{Densité} \\
     La distribution initiale de densité est linéaire, ainsi chaque particule fluide a une position unique sur le diagramme de dispersion initial :
@@ -281,7 +312,7 @@ Remerciements\\
     Le choix de la stratification, $\Delta\rho$, affecte le nombre de Richardson. Dans cette étude $\Delta\rho=1.2$ est assez faible pour avoir un $Ri=4.5\ 10^{-3}<< 1/4$. Cependant, si la stratification venait à augmenter, le nombre de Richardson dépasserait difficilement la valeur de 1/4 avec une telle configuration (Figure \noparref{TG_deltarho}). Il en est de même pour la longueur d'onde la plus instable,  d'après la théorie de Taylor-Golstein, elle ne varie que très peu avec $\Delta\rho$ dans cette étude. \\
     \begin{figure}[!h]
 	\centering		
-		\includegraphics[width=0.55\linewidth]{figures/TG_delatrho.jpg}
+		\includegraphics[width=0.9\linewidth]{figures/TG_delatrho_2.jpg}
 \caption[Taylor-Goldstein]{\textit{Prédiction du taux de croissance en fonction de la longueur d'onde d'après la théorie de Taylor-Goldstein pour plusieurs gammes de stratifications}}
 	\label{TG_deltarho}
 \end{figure}
@@ -335,32 +366,37 @@ Remerciements\\
 %---Paramètres numériques-----------------------------------------------------    
     \subsection{Paramètres numériques}
     
-    Choix de la grille, des pas de temps
-    Toutes les simulations présentées ici ont les mêmes conditions initiale sur la structure de la densité, du traceur et du champ de vitesse. Les nombres sans dimensions sont également constants, Ri=0.0045 (sans dimension ?) et Re=2000. La longueur d'onde sans dimension la plus instable prévu par la théorie de Taylor-Godstein dans ces conditions est $\lambda_{KH}=14.0$. La longueur du domaine est choisie telle que $L_x\approx \lambda_{KH}$ pour n'avoir qu'un seul vortex qui se forme. Les nombres de points de grille ($N_x$, $N_y$ et $N_z$ respectivement dans les directions x, y et z) sont choisis pour avoir une résolution sans dimension isotrope : $\Delta x=\Delta y=\Delta z=0.055$. Les paramètres numériques sont résumés dans le tableau :
-    \begin{center}
-    \begin{tabular}{|c|c|c|c|c|}
-    \hline
-         Domaine &  Grille & Pas de temps & Pas de temps NBQ & $C_s$ \\ \hline
-         $L_x = 14.0$ & $N_x = 256$ & & &\\
-         $L_y = 5.3$  & $N_y = 96$  & \Delta t = 0.006 & $N\Delta_{FAST} = 10$ & $C_s=10$ \\
-         $L_z = 28.6$ & $N_z = 512$ & & & \\
-         \hline
-    \end{tabular}
-    \end{center}
+    
+    Toutes les simulations présentées ici ont les mêmes conditions initiale sur la structure de la densité, du traceur et du champ de vitesse. Les nombres sans dimensions sont également constants, Ri=0.0045 (sans dimension ?) et Re=2000. La longueur d'onde sans dimension la plus instable prévu par la théorie de Taylor-Godstein dans ces conditions est $\lambda_{KH}=14.0$. La longueur du domaine est choisie telle que $L_x\approx \lambda_{KH}$ pour n'avoir qu'un seul vortex qui se forme. Les nombres de points de grille ($N_x$, $N_y$ et $N_z$ respectivement dans les directions x, y et z) sont choisis pour avoir une résolution sans dimension isotrope : $\Delta x=\Delta y=\Delta z=0.055$. %Les paramètres numériques sont résumés dans le tableau :
+    %\begin{center}
+    %\begin{tabular}{|c|c|c|c|c|}
+    %\hline
+    %     Domaine &  Grille & Pas de temps & Pas de temps NBQ & $C_s$ \\ \hline
+    %     $L_x = 14.0$ & $N_x = 256$ & & &\\
+    %     $L_y = 5.3$  & $N_y = 96$  & \Delta t = 0.006 & $N\Delta_{FAST} = 10$ & $C_s=10$ \\
+    %     $L_z = 28.6$ & $N_z = 512$ & & & \\
+    %     \hline
+    %\end{tabular}
+    %\end{center}
 %---Tests numériques----------------------------------------------------------    
     \subsection{Tests numériques}
     
-    Une série de tests en 2D a permis de valider la configuration utilisée dans cette étude. Dans un premier temps, j'ai évalué la diffusion implicite du schéma numérique 
-    kappa net (diffusion implicite+explicite) on ne peut pas descendre les diffusions mol en dessous de la diffusion numérique. \\
-    Test vitesse acoustique \\
+    \color{blue}
+    La configuration numérique à d'abord été testée avec des cas simplifiés en 2D afin d'optimiser le temps de calcul. \\
+    \color{black}
+     \\
    
 %---Liste des simulations----------------------------------------------------------     
     \subsection{Liste des simulations}
-    
+    Afin de faire varier le rapport entre les diffusions moléculaires de la densité et du traceur, 5 simulations ont été évaluées. La première (cas 1) est un cas de référence avec des coefficients de diffusion similaire pour le traceur et la densité, on attend donc des résultats similaires à \cite{penney_diapycnal_2020}. Le cas 2 et 3 sont des simulations où le coefficient de diffusion de la densité est  multiplié par 10 et par 100 respectivement. Le cas 4 et 5 sont des simulations où c'est le coefficient de diffusion du traceur qui est multiplié par 10 et par 100 respectivement. Les 5 cas sont résumés dans le tableau ???.
     \begin{center}
-    \begin{tabular}{|c|c|c|c|c|}
-    \hline
-         N simulation & $\kappa_{\rho}$ & $\kappa_{\phi}$ & $\kappa_{\rho}/\kappa_{\phi}$ \\ \hline
+    \begin{table}[h]
+        \centering
+        \renewcommand{\arraystretch}{1.5} %donne la distance entre les lignes%
+        \setlength{\tabcolsep}{0.5cm} %donne la distance entre les collones%
+        \begin{tabular}{|c|c|c|c|c|}
+        \hline
+         n$^\circ$ simulation & $\kappa_{\rho}$ & $\kappa_{\phi}$ & $\kappa_{\rho}/\kappa_{\phi}$ \\ \hline
          $1$ & $5.10^{-3}$ & $5.10^{-3}$ & $1$\\
          \hline
          $2$ & $5.10^{-2}$ & $5.10^{-3}$ & $10$ \\
@@ -371,10 +407,31 @@ Remerciements\\
          \hline
          $5$ & $5.10^{-3}$ & $5.10^{-1}$ & $0.01$\\
          \hline
-    \end{tabular}
+        \end{tabular}
+        \caption{Caption}
+        \label{tab:my_label}
+    \end{table}
     \end{center}
-    Variation de krho et kphi
-
+    Si le schéma numérique est idéal, la diffusion moléculaire ($\kappa_{\rho}$ et $\kappa_{\phi}$) resterait constante égale à la valeur explicitée dans le modèle. En réalité, les schémas numériques ne peuvent pas être parfaits et créent une diffusion inhérente. Il est donc important dévaluer cette diffusion pour chaque cas et de la prendre en compte dans les analyses physiques. Elle varie dans le temps, dépend du schéma utilisé, de la grille, du pas de temps, du coefficient de diffusion explicité et de l'écoulement. La diffusion nette (qui combine la diffusion implicite et explicite) peut être évaluée si le fluide incompressible évolue avec une équation d'advection-diffusion :
+    \begin{equation}
+        \label{}
+        \frac{\partial \rho}{\partial t} + \bf u.\nabla\rho = \kappa_{\rho}\Delta^2\rho
+    \end{equation}
+    La diffusion peut être résolue à chaque instant en multipliant par le traceur puis en intégrant sur tout le domaine (\cite{penney_diapycnal_2020}:
+    \begin{equation}
+        \kappa_{\rho}^{net}(t)= \frac{\int_V \dfrac{\partial\rho^2}{\partial t}dV}{2\int_V |\nabla\rho|^2dV}
+    \end{equation}
+    Les diffusions nettes normalisées par les diffusions moléculaires respectives sont présentées sur la figure ???.
+    \begin{figure}[!h]
+    %\hfill
+        \centering
+        \label{kappanet}
+        \includegraphics[width=0.9\linewidth]{figures/kappanet.jpg}
+        \caption{Légende}
+    \end{figure}
+    \color{blue}
+    description des diffusions nettes
+    \color{black}
 
 %----------------------------------------------------------------------------------
 %%   RESULTATS
@@ -386,11 +443,11 @@ Remerciements\\
   
     \subsubsection{Évolution de la densité et du traceur}
 
-    \begin{figure}[h]
+    \begin{figure}[!h]
     %\hfill
         \centering
         \label{rhodiff}
-        \includegraphics[width=0.95\linewidth]{figures/rhodiff.png}
+        \includegraphics[width=0.95\linewidth]{figures/rhodiff_contour.png}
         \caption{Légende}
     \end{figure}
     
@@ -402,11 +459,16 @@ Remerciements\\
         \caption{Légende}
     \end{figure}
     
-    La figure \noparref{rhodiff} présente des coupes z-x et z-y pour la simulation de références (cas 1) ou les coefficients de diffusion de la densité et du traceur sont les mêmes, et pour les simulations ou le coefficient de diffusion de la densité est 10 fois supérieur (cas 2), puis 100 fois supérieur (cas 3) à celui du traceur. À la première observation, même si l'évolution générale de la densité et du traceur semble proche, on voit que l'instabilité dynamique est modifiée avec le coefficient de diffusion de la densité. Sur la figure ??? on a les diagrammes de dispersion aux mêmes pas de temps. À t=24, le diagramme de dispersion de la simulation de référence est proche de son état initial, ce qui veut dire que les particules sont seulement advectées de manière adiabatique (conservative). Le pic correspond à la couche centrale de traceur, et sa largeur indique la pénétration du traceur dans les gammes de densités. Initialement, la majorité des particules fluides sont neutres en traceur, elles sont localisées à la base du diagramme de dispersion ($\phi=0$). Pour le cas 2 et 3 on note des signes de faible processus diabatique (non conservatif) liés à la diffusion lente plus élevée dans ces deux simulations. Le vortex caractéristique des instabilités de KH se forme dans la zone de cisaillement et étire les surfaces isopycnales, ce qui favorise le mélange non conservatif. Sur les diagrammes de dispersion, on voit bien ce mélange diabatique à t=48 avec un étalement du nuage de point. Ensuite des instabilités transverses se mettent en place, on commence à les voir sur les coupes z-y de la figure ??? à t=84. À t=120, les instabilités transverses et convectives décomposent rapidement le vortex et favorisent une homogénéisation rapide en traceur et densité. Au niveau des diagrammes de dispersion, on voit ce mélange qui réduit le pic lié à la couche centrale concentrée en traceur à t=240. On note aussi qu'un noyau central concentré en traceur s'est formé à la fois sur la figure ??? et sur les diagrammes de dispersion. Le mélange non conservatif et la dissipation continuent de faire effet jusqu'à dissiper l'instabilité. Même si les étapes sont similaires pour les trois cas, on voit bien que les profils finaux sont différents. Sur la figure ??? le traceur semble s'homogénéiser moins bien pour le cas 3 alors que le gradient de densité est beaucoup plus faible, la couche centrale n'est presque plus marquée. Pour les cas 1 et 2, la couche centrale s'est élargie verticalement en homogénéisant ses propriétés en densité et traceur. On note des différences sur les diagrammes de dispersion également. Pour le cas 1 on retrouve la forme linéaire par morceau décrite par \cite{penney_diapycnal_2020} avec du traceur dans des nouvelles gammes de densité. Pour le cas 2 on retrouve également cette forme mais avec un pic qui semble plus étalé donc avec du traceur dans des gammes de densité plus grandes que le cas 1. Enfin, pour le cas 3 on ne retrouve pas le même comportement, le nuage de point ne devient pas aussi compacte que pour les autres cas et un plateau s'est créé au sommet du pic alors qu'il semble moins étalé en densité. Pour ce dernier cas, on a donc moins d'étalement du traceur, mais les particules affectées sont plus homogènes.
+    La figure \noparref{rhodiff} présente des coupes z-x et z-y pour la simulation de références (cas 1) ou les coefficients de diffusion de la densité et du traceur sont les mêmes, et pour les simulations ou le coefficient de diffusion de la densité est 10 fois supérieur (cas 2), puis 100 fois supérieur (cas 3) à celui du traceur. À la première observation, même si l'évolution générale de la densité et du traceur semble proche, on voit que l'instabilité dynamique est modifiée avec le coefficient de diffusion de la densité. Les diagrammes de dispersion sont tracés sur la figure ??? aux mêmes pas de temps. 
+    À t=24, le vortex typique des instabilités KH se forme. le diagramme de dispersion de la simulation de référence est proche de son état initial, ce qui veut dire que les particules sont seulement advectées de manière adiabatique (conservative) dans le vortex. Le pic correspond à la couche centrale de traceur, et sa largeur indique la pénétration du traceur dans les gammes de densités. Initialement, la majorité des particules fluides sont neutres en traceur, elles sont localisées à la base du diagramme de dispersion ($\phi=0$). Pour le cas 2 et 3 on note des signes de faible processus diabatique (non conservatif) liés à la diffusion lente de la densité, plus élevée dans ces deux simulations. 
+    Le vortex continue d'étirer les surfaces isopycnales, ce qui favorise le mélange non conservatif en augmentant les gradients locaux. Sur les diagrammes de dispersion, on voit bien ce mélange diabatique à t=48 avec un étalement du nuage de point. 
+    Quand les surface isopycnales sont trop étirées, des instabilités convectives déstabilisent le vortex (visible sur les coupes x-z de la figure ??? à t=84). Comme la configuration est en 3D, des instabilités transverses se mettent également en place, on commence à les voir sur les coupes z-y de la figure ??? à t=84. 
+    À t=120, les instabilités transverses et convectives décomposent rapidement le vortex et favorisent une homogénéisation rapide en traceur et densité. 
+    À t=240, les diagrammes de dispersion montrent que ce mélange turbulent réduit le pic lié à la couche centrale concentrée en traceur et donc favorisent une homogénéisation rapide des propriétés des particules fluides. On note aussi qu'un noyau central concentré en traceur s'est formé à la fois sur la figure ??? et sur les diagrammes de dispersion. Le mélange non conservatif et la dissipation continuent de faire effet jusqu'à dissiper l'instabilité. Même si les étapes sont similaires pour les trois cas, les profils finaux sont différents à la fois sur les coupes verticales que sur les diagrammes de dispersion. Sur la figure ??? le traceur semble s'homogénéiser moins bien pour le cas 3 alors que le gradient de densité sur tout le domaine est beaucoup plus faible, la couche centrale de densité n'est presque plus marquée. Pour les cas 1 et 2, la couche centrale s'est élargie verticalement en homogénéisant ses propriétés en densité et traceur. On note des différences sur les diagrammes de dispersion également. Pour le cas 1 on retrouve la forme linéaire par morceau décrite par \cite{penney_diapycnal_2020} avec du traceur dans des nouvelles gammes de densité. Pour le cas 2 on retrouve également cette forme, mais avec un pic qui semble plus étalé, donc avec du traceur dans des gammes de densité plus grandes que le cas 1. Enfin, pour le cas 3 on ne retrouve pas le même comportement, le nuage de point ne devient pas aussi compacte que pour les autres cas et un plateau s'est créé au sommet du pic alors qu'il semble moins étalé sur l'axe de la densité. Pour ce dernier cas, on a donc moins d'étalement du traceur dans des gammes de densité extrêmes, mais les particules affectées sont plus homogènes en concentration de traceur.
     
     \subsubsection{Évolution macroscopique}
     
-    À partir des sorties des simulations précédentes, le profil macroscopique de la densité et du traceur passifs, issu de l'équation ???, sont calculés à chaque pas de temps (Figure \noparref{rhodiff_star}). Pour les trois simulations, on retrouve les deux phases de mélange à $t\approx50$ quand le vortex s'enroule et à $t\approx250$ quand les instabilités transverses apparaissent. Pour la densité, dans les cas 1 et 2 (Figure \noparref{rhodiff_star}a-b), ces deux évènements se traduisent par un étalement vertical de la couche centrale ($\rho\approx 0$) alors que pour le cas 3(Figure \noparref{rhodiff_star}c), les instabilités transverses semble faire disparaitre cette couche centrale. La couche centrale en traceur passif (Figure \noparref{rhodiff_star}d-e-f) augmente progressivement pour les trois cas, mais le mélange homogénéise significativement la couche à partir de $t\approx 250$ dans les trois cas. 
+    À partir des sorties des simulations précédentes, le profil macroscopique de la densité et du traceur passifs, issu de l'équation ???, sont calculés à chaque pas de temps (Figure \noparref{rhodiff_star}). Pour les trois simulations, on retrouve les deux phases de mélange. La première à $t\approx50$ quand le vortex s'enroule, étire les surfaces isopycnales et augmente les gradients locaux, et à $t\approx250$ quand les instabilités transverses apparaissent. Pour la densité, dans les cas 1 et 2 (Figure \noparref{rhodiff_star}a-b), ces deux évènements se traduisent par un étalement vertical de la couche centrale ($\rho\approx 0$), qui est de plus en plus marquée, alors que pour le cas 3(Figure \noparref{rhodiff_star}c), les instabilités transverses semble faire disparaitre cette couche centrale. La couche centrale en traceur passif (Figure \noparref{rhodiff_star}d-e-f) augmente progressivement pour les trois cas, mais le mélange homogénéise significativement la couche à partir de $t\approx 250$ dans les trois cas. 
     \\
     \begin{figure}[!h]
     %\hfill
@@ -415,27 +477,26 @@ Remerciements\\
         \includegraphics[width=0.9\linewidth]{figures/rhodiff_star.png}
         \caption{Légende}
     \end{figure}
-    Pour mieux analyser l'influence du mélange sur les profils macroscopiques, les profils finaux issu du réarrangement sont tracés en trait plein sur la figure \noparref{rhodiff_profils_Krho}. La densité, pour le cas 1 et 2, a formé une couche centrale autour de $\rho\approx0$ alors que dans le cas 3 on ne distingue pas cette couche. Les interactions avec la surface et le fond modifient les profils finals avec l'augmentation du coefficient de diffusion (cas 2 et 3). Dans le cas 3 cette interaction est très marquée et pourrait donc avoir un impact sur la dynamique au centre de la colonne d'eau. Pour le traceur, on note un léger étalement vertical avec l'augmentation du coefficient de diffusion de la densité.\\ 
-    En trait pointillé sont tracés les profils virtuels calculés avec une simple équation de diffusion macroscopique utilisant le coefficient de diffusion effectif (equation ???). On cherche à savoir si c'est profils virtuels peuvent prédire l'évolution de la densité et du traceur. Comme attendu, pour la densité, les profils virtuels finaux sont similaires aux profils macroscopiques. Le profil du traceur est prédit par le profil virtuel seulement dans le cas 1, ce qui est cohérent avec \cite{penney_diapycnal_2020}. À partir du moment ou les coefficients de diffusion de la densité et des traceurs sont différents, on ne retrouve pas les profils macroscopiques à partir de l'évolution virtuelle. 
+    Pour mieux analyser l'influence du mélange sur les profils macroscopiques, les profils finaux (t=500) issu du réarrangement sont tracés en trait plein sur la figure \noparref{rhodiff_profils_Krho}. Sur cette figure, la densité a le même comportement que décrit précédemment. Pour le cas 1 et 2, elle a formé une couche centrale autour de $\rho\approx0$ alors que dans le cas 3 on ne distingue pas cette couche. Les interactions avec la surface et le fond modifient les profils finals avec l'augmentation du coefficient de diffusion (cas 2 et 3). Dans le cas 3 cette interaction est très marquée et pourrait donc avoir un impact sur la dynamique au centre de la colonne d'eau. Pour le traceur, on note un léger étalement vertical avec l'augmentation du coefficient de diffusion de la densité (cas 2 et 3).\\ 
     
     \begin{figure}[!h]
     %\hfill
         \centering
         \label{rhodiff_profils_Krho}
-        \includegraphics[width=1\linewidth]{figures/rhodiff_profils_Krho.png}
+        \includegraphics[width=1\linewidth]{figures/rhodiff_profils_fin.png}
         \caption{Légende}
     \end{figure}
     
     
   \subsection{Variation du coefficient de diffusion du traceur passif}
   
-    \subsubsection{Évolution de la densité et du traceur passif}
+    \subsubsection{Évolution du traceur passif}
     
     \begin{figure}[!h]
     %\hfill
         \centering
         \label{phidiff}
-        \includegraphics[width=0.95\linewidth]{figures/phidiff.png}
+        \includegraphics[width=0.90\linewidth]{figures/phidiff_contour.png}
         \caption{Légende}
     \end{figure}
     
@@ -443,11 +504,11 @@ Remerciements\\
     %\hfill
         \centering
         \label{scatterplot_phi}
-        \includegraphics[width=1.3\linewidth]{figures/scatterplot_phidiff.jpg}
+        \includegraphics[width=0.8\linewidth]{figures/scatterplot_phidiff.jpg}
         \caption{Légende}
     \end{figure}
-    
-    La variation du coefficient de diffusion du traceur n'affecte pas la dynamique, car le traceur est passif. L'évolution de l'instabilité est donc la même que celle décrite dans la partie ??? pour le cas 1. Cependant, l'homogénéisation des particules en traceur est affectée, car on modifie le rayon d'action des particules fluides, mais il est difficile de voir une différence entre les profils finaux des trois cas présentés sur la figure ???. Pour ce qui est des diagrammes de dispersions (figure ???), on note une diminution plus rapide du pic avec l'augmentation du coefficient de diffusion du traceur passif, ce qui traduit un lissage des concentrations extrêmes en traceur plus efficace. Les nuages de points finaux sont sensiblement similaires avec une forme linéaire par morceaux.
+    Dans cette parties les simulation 4 et 5 sont présentées. Elles correspondent respectivement à une multiplication du coefficient de diffusion moléculaire du traceur par 10 et par 100. Elles sont présentées avec le cas 1 qui est le cas de référence (même diffusion moléculaire pour le traceur et la densité).
+    La variation du coefficient de diffusion du traceur n'affecte pas la dynamique, car le traceur est passif (il n'influe pas l'équation d'état). L'évolution de l'instabilité est donc la même que celle décrite pour le cas 1 dans la partie ???, c'est pourquoi seules les figures relatives au traceur passif sont présentées dans cette partie. Cependant, l'homogénéisation des particules en traceur est affectée, car on modifie le rayon d'action des particules fluides. Sur la figure ??? sont présentés les coupes verticales en traceur (x-z et y-z) pour les cas 1, 4 et 5, à plusieurs pas de temps. La diffusion lente est clairement visible pour le cas 3, mais les profils finaux semblent similaires dans les trois cas. Les diagrammes de dispersion correspondant aux mêmes pas de temps sont tracés sur la figure ???. On note une diminution plus rapide du pic initial de la distribution avec l'augmentation du coefficient de diffusion du traceur passif, à partir de t=84 pour le cas 3 et t= 120 pour le cas 2, ce qui traduit un lissage des concentrations extrêmes en traceur plus efficace. Les nuages de points finaux sont sensiblement similaires avec une forme linéaire par morceaux.
     
     \subsubsection{Évolution macroscopique}
     
@@ -459,9 +520,31 @@ Remerciements\\
         \caption{Légende}
     \end{figure}
     
-  \subsection{Variation de la position ?}
-
-
+    De la même manière que pour les 3 premières simulations, le profil macroscopique (réarrangement isopycnal) des traceurs a été calculé (Figure ???). Il ne semble pas y avoir de grandes différences sur l'évolution du traceur passif entre les trois simulations, à partir de $t\approx250$ la couche de traceur s'homogénéise rapidement avec les instabilités transverses pour les trois simulations présentées ici. Quand on regarde le profil final (Figure ???) on voit cependant que le traceur pénètre dans des gammes de densité plus large avec un grand coefficient de diffusion (courbe violette et jaune).
+    
+  \subsection{Application de la diffusion effective aux traceurs $K_{\rho}^{eff}$}
+  
+    \subsubsection{Application à la densité}
+    \begin{figure}[!h]
+        %\hfill
+            \centering
+            \label{scatterplot_phi}
+            \includegraphics[width=0.5\linewidth]{figures/profils_Krho_rho.png}
+            \caption{Légende}
+    \end{figure}
+    
+    Une équation de diffusion avec pour coefficient de diffusion $\K_\rho$ est appliquée au profil initial de densité. La variable obtenue est une densité virtuelle $\rho_v$ qui représente l'évolution d'un profil vertical macroscopique de la densité. D'après \cite{penney_diapycnal_2020} elle est supposée prédire l'évolution de la densité réarrangée $\rho_*$. Sur la figure ??? le profil final (t=450) de $\rho_*$ est tracé en trait plein et celui de $\rho_v$ à t=450 est tracé en pointillé. Comme attendu, on retrouve exactement le même profil pour chaque simulation.
+    
+    \subsubsection{Application au traceur passif}
+    \begin{figure}[!h]
+    %\hfill
+        \centering
+        \label{scatterplot_phi}
+        \includegraphics[width=1\linewidth]{figures/profils_Krho.png}
+        \caption{Légende}
+    \end{figure}
+    
+    De la même manière que pour la densité, une équation de diffusion avec pour coefficient $\frac{\kappa_{\phi}}{\kappa_{\rho}}$ est appliqué au profil initial du traceur pour chaque simulation. Les profils finaux de $\phi_*$ sont tracés en trait plein sur la figure ??? et les profils finaux de $\phi_v$ sont tracés sur la même figure en trait pointillé pour chaque cas. Comme attendu, pour le cas 1, le profil du traceur est prédit par le traceur virtuel. Ce résultat coïncide avec l'étude de \cite{penney_diapycnal_2020}. Pour les cas 2 et 3, quand la diffusion moléculaire de la densité est augmentée, le profil virtuel sous-estime la diffusion macroscopique du traceur alors que dans les cas 4 et 5, quand la diffusion moléculaire du traceur est augmentée, le profil virtuel sur-estime la diffusion macroscopique du traceur. 
 
 %----------------------------------------------------------------------------------
 %%   DISCUSSION
@@ -469,11 +552,23 @@ Remerciements\\
 \newpage
 \section{Discussion}
 
-Rupture du comportement \\
-Détermination de Keff pour le traceur \\
-sensibilité à la position \\
-différence entre strat en S ou T \\
-Augmentation de la viscosité --> echelle de Kolmogorov et echelle de diffusion ?
+    \subsection{Convergence entre traceur et densité ?}
+    
+    Rupture du comportement
+    
+    \subsection{Coefficent de diffusion effectif propre au traceur ?}
+    
+    Détermination de Keff pour le traceur 
+    
+    \subsection{Sensibilité à la position et au fracage turbulent}
+    
+    \subsection{Stratification en salinité ? Traceur actif ?}
+    
+    différence entre strat en S ou T
+    
+    \subsection{Variation de la viscosité (comparaison des échelles)}
+    
+    Augmentation de la viscosité --> echelle de Kolmogorov et echelle de diffusion ?
 
 %----------------------------------------------------------------------------------
 %%   CONCLUSION
@@ -482,7 +577,8 @@ Augmentation de la viscosité --> echelle de Kolmogorov et echelle de diffusion 
 \section{Conclusion}
 
 \bibliographystyle{apalike}
-\bibliography{StageM2}
+\bibliography{bibstageM2}
+%\bibliography{StageM2}
 %citep %citet
 
 \end{document}
